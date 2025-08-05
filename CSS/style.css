@@ -1,0 +1,462 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f6f3;
+  color: #1f1f1f;
+  line-height: 1.6;
+}
+
+header {
+  background: #ffffff;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #e2e2e2;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.8s ease;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide span {
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0,0,0,0.6);
+}
+
+/* Chevrons */
+.hero-slider .prev,
+.hero-slider .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hero-slider .prev { left: 10px; }
+.hero-slider .next { right: 10px; }
+
+/* Bullet points */
+.dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #ffffff;
+}
+
+.section-container {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #2e2e2e;
+  margin-bottom: 2rem;
+}
+
+.projects,
+.skills-grid,
+.testimonials-grid,
+.recommendations ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card,
+.skill,
+.testimonial {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #f5f5f5;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* ---------- Base ---------- 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f7f6f3;
+  color: #1f1f1f;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---------- Header ---------- 
+header {
+  background: #ecebe7;
+  padding: 3rem 1rem;
+  text-align: center;
+  border-bottom: 2px solid #d2d2cf;
+}
+
+header h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.6rem;
+  color: #3b3b3b;
+  margin-bottom: 0.5rem;
+  animation: fadeInDown 1s ease;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #707070;
+  animation: fadeInDown 1.2s ease;
+}
+
+nav {
+  margin-top: 1.5rem;
+  animation: fadeInDown 1.4s ease;
+}
+
+nav a {
+  margin: 0 1.2rem;
+  text-decoration: none;
+  color: #5c7cfa;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #5c7cfa;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: #3b5bdb;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- Sections ---------- 
+section {
+  padding: 4rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  color: #3b5bdb;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* ---------- Projets ---------- 
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+  color: #2f2f2f;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.card p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ---------- À propos ---------- 
+.about {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.about p + p {
+  margin-top: 1rem;
+}
+
+/* ---------- Footer ---------- 
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #ecebe7;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* ---------- Modale ---------- 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(30, 30, 30, 0.85);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-content h3 {
+  color: #3b3b3b;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  color: #444;
+}
+
+.close {
+  color: #999;
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ---------- Bouton ---------- 
+.btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  background: #5c7cfa;
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #3b5bdb;
+}
+
+/* ---------- Avis Extérieurs ---------- 
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.testimonial {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 2px solid #d6d6d6;
+}
+
+.testimonial blockquote {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.testimonial .author {
+  font-weight: bold;
+  color: #777;
+}
+
+.recommendations {
+  text-align: center;
+}
+
+.recommendations h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  color: #2c2c2c;
+}
+
+.recommendations ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+.recommendations li {
+  margin-bottom: 0.75rem;
+}
+
+.recommendations a {
+  color: #3b5bdb;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.recommendations a:hover {
+  color: #2c3ed6;
+  text-decoration: underline;
+}
+
+/* ---------- Animations ---------- 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
